@@ -1,13 +1,22 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'JIRA Issue Create Action'
+description: 'Create JIRA Issue'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  jira-api-host:
+    description: 'JIRA API Host'
     required: true
-    default: '1000'
+  jira-api-user:
+    description: 'JIRA API User'
+    required: true
+  jira-api-token:
+    description: 'JIRA API Token'
+    required: true
+  body:
+    description: 'JIRA Issue Body JSON String'
+    required: true
 outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  result:
+    description: 'API Response JSON String'
 runs:
   using: 'node12'
   main: 'dist/index.js'
+
