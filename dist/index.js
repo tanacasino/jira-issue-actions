@@ -37,10 +37,12 @@ async function run() {
     const response = await fetch(url, params);
     const json = await response.json();
 
+    console.info(json);
+    console.info(JSON.stringify(json))
     core.setOutput('result', JSON.stringify(json));
   } catch (error) {
+    console.info(error);
     core.setFailed(error.message);
-    console.error(error);
   }
 }
 
